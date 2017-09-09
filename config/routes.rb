@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :favorites
     resources :boardgames
-    resources :top_rated
     end
   root to: "boardgames#index"
 end

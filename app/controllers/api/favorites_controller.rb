@@ -12,6 +12,11 @@ class Api::FavoritesController < ApplicationController
         @favorite = Favorite.create!(user_id: user_id, boardgame_id: boardgame_id)
     end
 
+    def show
+        @boardgame = Boardgame.find params[:id]
+        render json: @boardgame
+    end
+
     def destroy
         @favorite = Favorite.find params[:id]
         @favorite.destroy
