@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import GlobalNav from './components/GlobalNav';
 import SignIn from './components/SignIn';
 import { setAxiosDefaults } from './util';
+import BoardgameList from './components/BoardgameList';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path='/signin' component={SignIn} />
+          <Route exact path="/boardgames/:id" component={BoardgameList} />
         </div>
       </Router>
     );
