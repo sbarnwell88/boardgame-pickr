@@ -29,7 +29,10 @@ class BoardgameList extends Component {
         }
         return (
             <div>
-                {this.state.game.name}
+                <div>{this.state.game.name}</div>
+                <div>{this.state.game.description}</div>
+                <div><img src={this.state.game.thumbnail} /></div>
+                <img src={this.state.game.image} />
             </div>
         );
     }
