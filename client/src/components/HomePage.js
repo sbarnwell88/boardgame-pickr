@@ -33,7 +33,7 @@ class HomePage extends Component {
                 <h1>Trending Boardgames</h1>
                    {this.state.games.map((game, index) => (
                     <div>
-                        <Link to={`#`} key={index}>{game.name}</Link>
+                        <Link to={`/boardgames/${game.gameId}`} key={index}>{game.name}</Link>
                     </div>
                 ))}   
             </div>
