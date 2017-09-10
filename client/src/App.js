@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { setAxiosDefaults } from './util';
 import HomePage from './components/HomePage';
 import SignUp from './components/SignUp';
 import GlobalNav from './components/GlobalNav';
 import SignIn from './components/SignIn';
-import { setAxiosDefaults } from './util';
 import BoardgameList from './components/BoardgameList';
+import NewBoardgame from './components/NewBoardgame';
 
 class App extends Component {
 
@@ -20,8 +21,9 @@ class App extends Component {
           <GlobalNav />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path='/signin' component={SignIn} />
+          <Route exact path="/signin" component={SignIn} />
           <Route exact path="/boardgames/:id" component={BoardgameList} />
+          <Route exact path="/new" component={NewBoardgame} />
         </div>
       </Router>
     );
