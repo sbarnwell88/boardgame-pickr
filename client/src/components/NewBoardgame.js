@@ -10,7 +10,6 @@ class NewBoardgame extends Component {
             description: '',
             thumbnail: '',
             image: '',
-            id: '',
             redirect: false
         }
     }
@@ -28,7 +27,6 @@ class NewBoardgame extends Component {
             description: this.state.description,
             thumbnail: this.state.thumbnail,
             image: this.state.image,
-            id: this.state.id
         }
         const res = await axios.post(`/api/boardgames`, payload);
         this.setState({
@@ -36,14 +34,13 @@ class NewBoardgame extends Component {
             description: res.data.description,
             thumbnail: res.data.thumbnail,
             image: res.data.image,
-            id: res.data.id,
             redirect: true
         })
     }
 
     render() {
         if(this.state.redirect) {
-            console.log(this.state.id)
+            const gameId = this.props.match.params.id
             return <Redirect to={`/boardgames/${this.state.id}`} />
         }
         return (
@@ -53,6 +50,15 @@ class NewBoardgame extends Component {
 
                     <label htmlFor="name">Boardgame Name: </label>
                     <input onChange={this._handleChange} type="text" name="name" value={this.state.name} />
+
+                    <label htmlFor="description">Description: </label>
+                    <input onChange={this._handleChange} type="text" name="description" value={this.state.description} />
+
+                    <label htmlFor="thumbnail">Thumbnail: </label>
+                    <input onChange={this._handleChange} type="text" name="thumbnail" value={this.state.thumbnail} />
+
+                    <label htmlFor="name">Image: </label>
+                    <input onChange={this._handleChange} type="text" name="image" value={this.state.image} />
 
                     <button>Create New Boardgame</button>
                 </form>

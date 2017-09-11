@@ -39,7 +39,7 @@ class GlobalNav extends Component {
           <Link to="/">
           </Link>
           <div>
-            <span>Signed In As: <Link to='/profile'>{this.state.user.email}</Link></span>
+            <span>Signed In As: <Link to={`/user/${this.state.user.id}`}>{this.state.user.email}</Link></span>
             <a href="#" onClick={this._logOut}> Log Out </a>
           </div>
         </div>
