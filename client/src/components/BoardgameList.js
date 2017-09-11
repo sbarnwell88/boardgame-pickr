@@ -17,9 +17,11 @@ class BoardgameList extends Component {
     }
 
     _getGame = async (gameId) => {
-        const res = await axios.get(`https://bgg-json.azurewebsites.net/thing/${gameId}`)
+        const res = await axios.get(`/api/boardgames/${gameId}`)
+            if(res.status === 404 ) {
+                axios.get(`https://bgg-json.azurewebsites.net/thing/${gameId}`)
+            }
         this.setState({game: res.data})
-        console.log(res.data)
         return res.data
     }
 

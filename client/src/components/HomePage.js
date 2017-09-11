@@ -6,7 +6,8 @@ class HomePage extends Component {
     constructor() {
         super();
         this.state = {
-            games: []
+            games: [],
+            favorites: []
         }
     }
 
@@ -17,7 +18,7 @@ class HomePage extends Component {
 
     _getGames = async () => {
         try {
-            const res = await axios.get(`https://bgg-json.azurewebsites.net/hot`);
+            const res = await axios.get(`https://bgg-json.azurewebsites.net/hot`) 
             await this.setState({ games: res.data })
             return res.data
         }
@@ -27,13 +28,19 @@ class HomePage extends Component {
         }
     }
 
+    _onClick = async (e) => {
+        const res = await axios.post(`/api/favorites`)
+        await this.setState({ favorites: res.data })
+        return res.data
+    }
+
     render() {
         return (
             <div>
                 <h1>Trending Boardgames</h1>
                    {this.state.games.map((game, index) => (
                     <div>
-                        <Link to={`/boardgames/${game.gameId}`} key={index}>{game.name}</Link>
+                        <Link to={`/boardgames/${game.gameId}`} key={index}>{game.name}</Link><button onClick={this._onClick}>+</button>
                     </div>
                 ))}   
             </div>

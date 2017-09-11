@@ -6,11 +6,28 @@ class NewBoardgame extends Component {
     constructor() {
         super();
         this.state = {
+            game : {
+            gameId: '',
             name: '',
             description: '',
             thumbnail: '',
             image: '',
-            redirect: false
+            minPlayers: '',
+            maxPlayers: '',
+            playingTime: '',
+            mechanics: '',
+            isExpansion: false,
+            yearPublished: '',
+            bggRating: '',
+            averageRating: '',
+            rank: '',
+            designers: '',
+            publishers: '',
+            artists: '',
+            playerPollResults: '',
+            expansions: ''
+        },
+        redirect: false
         }
     }
 
@@ -22,26 +39,16 @@ class NewBoardgame extends Component {
 
     _newGame = async (e) => {
         e.preventDefault();
-        const payload = {
-            name: this.state.name,
-            description: this.state.description,
-            thumbnail: this.state.thumbnail,
-            image: this.state.image,
-        }
+        const payload = this.state.game;
         const res = await axios.post(`/api/boardgames`, payload);
-        this.setState({
-            name: res.data.name,
-            description: res.data.description,
-            thumbnail: res.data.thumbnail,
-            image: res.data.image,
-            redirect: true
-        })
+        this.setState({ redirect: true, id: res.data.id })
+        console.log(res.data.id)
     }
 
     render() {
         if(this.state.redirect) {
-            const gameId = this.props.match.params.id
-            return <Redirect to={`/boardgames/${this.state.id}`} />
+            const id = this.props.match.params.id;
+            return <Redirect to={`/boardgames/${id}`} />
         }
         return (
             <div>
@@ -57,8 +64,50 @@ class NewBoardgame extends Component {
                     <label htmlFor="thumbnail">Thumbnail: </label>
                     <input onChange={this._handleChange} type="text" name="thumbnail" value={this.state.thumbnail} />
 
-                    <label htmlFor="name">Image: </label>
+                    <label htmlFor="image">Image: </label>
                     <input onChange={this._handleChange} type="text" name="image" value={this.state.image} />
+
+                    <label htmlFor="minPlayers">Min. Players: </label>
+                    <input onChange={this._handleChange} type="text" name="minPlayers" value={this.state.minPlayers} />
+
+                    <label htmlFor="maxPlayers">Max. Players: </label>
+                    <input onChange={this._handleChange} type="text" name="maxPlayers" value={this.state.maxPlayers} />
+
+                    <label htmlFor="playingTime">Playing Time: </label>
+                    <input onChange={this._handleChange} type="text" name="playingTime" value={this.state.playingTime} />
+
+                    <label htmlFor="mechanics">Mechanics: </label>
+                    <input onChange={this._handleChange} type="text" name="mechanics" value={this.state.mechanics} />
+
+                    <label htmlFor="isExpansion">isExpansion? </label>
+                    <input onChange={this._handleChange} type="text" name="isExpansion" value={this.state.isExpansion} />
+
+                    <label htmlFor="yearPublished">Year Published: </label>
+                    <input onChange={this._handleChange} type="text" name="yearPublished" value={this.state.yearPublished} />
+
+                    <label htmlFor="bggRating">Bgg Rating: </label>
+                    <input onChange={this._handleChange} type="text" name="bggRating" value={this.state.bggRating} />
+
+                    <label htmlFor="averageRating">Average Rating: </label>
+                    <input onChange={this._handleChange} type="text" name="averageRating" value={this.state.averageRating} />
+
+                    <label htmlFor="rank">Rank: </label>
+                    <input onChange={this._handleChange} type="text" name="rank" value={this.state.rank} />
+
+                    <label htmlFor="designers">Designers: </label>
+                    <input onChange={this._handleChange} type="text" name="designers" value={this.state.designers} />
+
+                    <label htmlFor="publishers">Publishers: </label>
+                    <input onChange={this._handleChange} type="text" name="publishers" value={this.state.publishers} />
+
+                    <label htmlFor="artists">Artists: </label>
+                    <input onChange={this._handleChange} type="text" name="artists" value={this.state.artists} />
+
+                    <label htmlFor="playerPollResults">Player Poll Results: </label>
+                    <input onChange={this._handleChange} type="text" name="playerPollResults" value={this.state.playerPollResults} />
+
+                    <label htmlFor="expansions">Expansions: </label>
+                    <input onChange={this._handleChange} type="text" name="expansions" value={this.state.expansions} />
 
                     <button>Create New Boardgame</button>
                 </form>

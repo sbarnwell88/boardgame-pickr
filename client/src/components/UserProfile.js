@@ -7,7 +7,6 @@ class UserProfile extends Component {
         super();
         this.state = {
             user: {}
-            // loggedIn: false
         }
     }
 
@@ -20,12 +19,10 @@ componentWillMount() {
     const res = await axios.get(`/api/users/${userId}`);
     this.setState({
       user: res.data
-    //   loggedIn: response.data.success
     });
     console.log(res.data)
     return res.data
   };
-// /auth/validate_token
 
     render() {
        

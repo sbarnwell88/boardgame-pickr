@@ -7,7 +7,7 @@ import GlobalNav from './components/GlobalNav';
 import SignIn from './components/SignIn';
 import BoardgameList from './components/BoardgameList';
 import UserProfile from './components/UserProfile';
-// import NewBoardgame from './components/NewBoardgame';
+import NewBoardgame from './components/NewBoardgame';
 // import EditBoardgame from './components/EditBoardgame';
 
 class App extends Component {
@@ -25,7 +25,8 @@ class App extends Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/boardgames/:id" component={BoardgameList} />
-           <Route exact path="/user/:id" component={UserProfile} /> 
+          <Route exact path="/user/:id" component={UserProfile} /> 
+          <Route exact path="/new" component={NewBoardgame} />
         </div>
       </Router>
     );
