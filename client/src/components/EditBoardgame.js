@@ -10,7 +10,8 @@ class EditBoardgame extends Component {
                 name: '',
                 description: '',
                 thumbnail: '',
-                image: ''
+                image: '',
+                id: ''
             },
             redirect: false
         }
@@ -23,11 +24,19 @@ class EditBoardgame extends Component {
 
     _getGame = async (gameId) => {
         try {
-            const res = await axios.get(`https://bgg-json.azurewebsites.net/thing/${gameId}`)
-            const game = res.data;
-            await this.setState({game})
+        const res = await axios.get(`/api/boardgames/${gameId}`)
+        this.setState({game: res.data})
+        return res.data            
         }
-        catch(error) {
+        catch (error) {
+            try {
+            const res = await axios.get(`https://bgg-json.azurewebsites.net/thing/${gameId}`)
+            this.setState({game: res.data})
+            return res.data
+            }
+            catch (error) {
+                console.log(error.message)
+            }
         }
     }
 
@@ -53,7 +62,7 @@ class EditBoardgame extends Component {
 
     render() {
         if(this.state.redirect) {
-            return <Redirect to={`/`} />
+            return <Redirect to={`/boardgames/${this.state.game.id}`} />
         }
         return (
             <div>

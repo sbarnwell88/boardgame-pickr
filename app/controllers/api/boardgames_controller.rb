@@ -8,6 +8,8 @@ class Api::BoardgamesController < ApplicationController
 
     def create
         @boardgame = Boardgame.create!(boardgame_params)
+        # (name: @boardgame.name).first_or_create!
+        # create!(boardgame_params)
         render json: @boardgame
     end
 
@@ -24,6 +26,8 @@ class Api::BoardgamesController < ApplicationController
     def update
         @boardgame = Boardgame.find params[:id]
         @boardgame.update!(boardgame_params)
+
+        render json: @boardgame
     end
 
     def destroy
@@ -34,6 +38,6 @@ class Api::BoardgamesController < ApplicationController
 
     private
     def boardgame_params
-        params.require(:boardgame).permit(:name, :description, :image, :thumbnail, :min_players, :max_players)
+        params.require(:boardgame).permit(:name, :description, :image, :thumbnail, :min_players, :max_players, :api_id)
     end
 end

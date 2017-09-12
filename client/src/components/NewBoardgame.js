@@ -17,7 +17,6 @@ class NewBoardgame extends Component {
         }
     }
    
-
     _handleChange = (e) => {
         const attributeName = e.target.name;
         const attributeValue = e.target.value;

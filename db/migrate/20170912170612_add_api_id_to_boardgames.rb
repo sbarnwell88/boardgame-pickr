@@ -1,0 +1,5 @@
+class AddApiIdToBoardgames < ActiveRecord::Migration[5.1]
+  def change
+    add_column :boardgames, :api_id, :integer
+  end
+end
