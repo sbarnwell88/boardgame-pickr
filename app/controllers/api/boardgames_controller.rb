@@ -28,8 +28,9 @@ class Api::BoardgamesController < ApplicationController
     end
 
     def update
-        @boardgame = Boardgame.find params[:id]
-        @boardgame.update!(boardgame_params)
+        # @boardgame = Boardgame.find params[:id]
+        @boardgame = Boardgame.where(api_id: params[:id])
+        @boardgame.update(boardgame_params)
 
         render json: @boardgame
     end
