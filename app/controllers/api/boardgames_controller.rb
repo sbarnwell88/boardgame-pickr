@@ -12,7 +12,11 @@ class Api::BoardgamesController < ApplicationController
 
     def show
         @boardgame = Boardgame.find params[:id]
-        render json: @boardgame
+        if Boardgame.exists?(false)
+            return json: 500
+        else
+            render json: @boardgame
+        end
     end
 
     def update

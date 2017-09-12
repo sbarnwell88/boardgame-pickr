@@ -9,7 +9,7 @@ class Search extends Component {
         }
     }
     _search = async(e) => {
-        const res = 
+        const res = await axios.get()
     }
     render() {
         return (
