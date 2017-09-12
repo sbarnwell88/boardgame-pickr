@@ -15,10 +15,11 @@ class Api::BoardgamesController < ApplicationController
     end
 
     def show
-        @boardgame = Boardgame.find_by_id(params[:id])
-        @boardgame = Boardgame.where(api_id: params[:id]) if @boardgame.nil?
+        # @boardgame = Boardgame.find_by_id(params[:id])
+        # @boardgame = Boardgame.where(api_id: params[:id]) if @boardgame.nil?
+        @boardgame = Boardgame.where(api_id: params[:id])
         puts @boardgame
-        if @boardgame
+        if @boardgame.exists?
             render json: @boardgame
             # return json: 500
         else
