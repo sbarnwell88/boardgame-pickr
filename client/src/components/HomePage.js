@@ -39,8 +39,8 @@ class HomePage extends Component {
             <div>
                 <h1>Trending Boardgames</h1>
                    {this.state.games.map((game, index) => (
-                    <div>
-                        <Link to={`/boardgames/${game.gameId}`} key={index}>{game.name}</Link><button onClick={this._onClick}>+</button>
+                    <div key={index}>
+                        <Link to={`/boardgames/${game.gameId}`}>{game.name}</Link><button onClick={this._onClick}>+</button>
                     </div>
                 ))}   
             </div>

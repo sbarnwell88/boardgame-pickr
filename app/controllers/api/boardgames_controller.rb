@@ -7,19 +7,22 @@ class Api::BoardgamesController < ApplicationController
     end
 
     def create
-        @boardgame = Boardgame.create!(boardgame_params)
+        @boardgame = Boardgame.where(api_id: params[:api_id]).first_or_create!(boardgame_params)
+        # create!(boardgame_params)
         # (name: @boardgame.name).first_or_create!
         # create!(boardgame_params)
         render json: @boardgame
     end
 
     def show
-        @boardgame = Boardgame.find params[:id]
-        if Boardgame.exists?(false)
-            # return json: 500
-            render :status => 500
-        else
+        @boardgame = Boardgame.find_by_id(params[:id])
+        @boardgame = Boardgame.where(api_id: params[:id]) if @boardgame.nil?
+        puts @boardgame
+        if @boardgame
             render json: @boardgame
+            # return json: 500
+        else
+            render status:500, json: {message: "cannot find api id within this database"}
         end
     end
 
