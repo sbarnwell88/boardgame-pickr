@@ -7,47 +7,38 @@ class NewBoardgame extends Component {
         super();
         this.state = {
             game : {
-            gameId: '',
-            name: '',
-            description: '',
-            thumbnail: '',
-            image: '',
-            minPlayers: '',
-            maxPlayers: '',
-            playingTime: '',
-            mechanics: '',
-            isExpansion: false,
-            yearPublished: '',
-            bggRating: '',
-            averageRating: '',
-            rank: '',
-            designers: '',
-            publishers: '',
-            artists: '',
-            playerPollResults: '',
-            expansions: ''
+                name: '',
+                description: '',
+                thumbnail: '',
+                image: '',
+                id: ''
         },
         redirect: false
         }
     }
+   
 
     _handleChange = (e) => {
-        const newState = {...this.state};
-        newState[e.target.name] = e.target.value;
-        this.setState(newState);
+        const attributeName = e.target.name;
+        const attributeValue = e.target.value;
+        const game = {...this.state.game};
+        game[attributeName] = attributeValue;
+        this.setState({ game });
     }
 
     _newGame = async (e) => {
         e.preventDefault();
         const payload = this.state.game;
+        console.log(payload)
         const res = await axios.post(`/api/boardgames`, payload);
-        this.setState({ redirect: true, id: res.data.id })
         console.log(res.data.id)
+        this.setState({ redirect: true, game: res.data})
     }
+
 
     render() {
         if(this.state.redirect) {
-            const id = this.props.match.params.id;
+            const id = this.state.game.id;
             return <Redirect to={`/boardgames/${id}`} />
         }
         return (
@@ -67,7 +58,7 @@ class NewBoardgame extends Component {
                     <label htmlFor="image">Image: </label>
                     <input onChange={this._handleChange} type="text" name="image" value={this.state.image} />
 
-                    <label htmlFor="minPlayers">Min. Players: </label>
+                    {/* <label htmlFor="minPlayers">Min. Players: </label>
                     <input onChange={this._handleChange} type="text" name="minPlayers" value={this.state.minPlayers} />
 
                     <label htmlFor="maxPlayers">Max. Players: </label>
@@ -107,7 +98,7 @@ class NewBoardgame extends Component {
                     <input onChange={this._handleChange} type="text" name="playerPollResults" value={this.state.playerPollResults} />
 
                     <label htmlFor="expansions">Expansions: </label>
-                    <input onChange={this._handleChange} type="text" name="expansions" value={this.state.expansions} />
+                    <input onChange={this._handleChange} type="text" name="expansions" value={this.state.expansions} /> */}
 
                     <button>Create New Boardgame</button>
                 </form>

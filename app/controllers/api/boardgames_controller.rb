@@ -8,12 +8,14 @@ class Api::BoardgamesController < ApplicationController
 
     def create
         @boardgame = Boardgame.create!(boardgame_params)
+        render json: @boardgame
     end
 
     def show
         @boardgame = Boardgame.find params[:id]
         if Boardgame.exists?(false)
-            return json: 500
+            # return json: 500
+            render :status => 500
         else
             render json: @boardgame
         end
@@ -32,6 +34,6 @@ class Api::BoardgamesController < ApplicationController
 
     private
     def boardgame_params
-        params.require(:boardgame).permit(:name, :description, :image, :min_players, :max_players)
+        params.require(:boardgame).permit(:name, :description, :image, :thumbnail, :min_players, :max_players)
     end
 end
