@@ -36,7 +36,8 @@ class Api::BoardgamesController < ApplicationController
     end
 
     def destroy
-        @boardgame = Boardgame.find params[:id]
+        # @boardgame = Boardgame.find params[:id]
+        @boardgame = Boardgame.find_by(api_id: params[:id])
         @boardgame.destroy
         
     end
