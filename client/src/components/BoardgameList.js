@@ -47,6 +47,12 @@ class BoardgameList extends Component {
         }
     }
 
+    _deleteGame = async () => {
+        const gameId = this.props.match.params.id;
+        const res = await axios.delete(`/api/boardgames/${gameId}`)
+        this.setState({ game: res.data, redirect: true })
+    }
+
     render() {
         const gameId = this.props.match.params.id;
         if(this.state.redirect) {
@@ -59,6 +65,7 @@ class BoardgameList extends Component {
                 <div><img src={this.state.game.thumbnail} /></div>
                 <img src={this.state.game.image} />
                 <Link to={`/boardgames/${gameId}/edit`}>Edit</Link>
+                <button onClick={this._deleteGame}>Delete Game</button>
             </div>
         );
     }
