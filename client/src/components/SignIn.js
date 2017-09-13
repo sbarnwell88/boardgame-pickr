@@ -21,6 +21,7 @@ _signIn = async (e) => {
   }
   const response = await axios.post('/auth/sign_in', payload);
   saveAuthTokens(response.headers);
+  this._createFavorite();
   this.setState({redirect: true})
 }
 
@@ -28,6 +29,10 @@ _signIn = async (e) => {
    const newState = {...this.state};
    newState[e.target.name] = e.target.value;
    this.setState(newState);
+ }
+
+ _createFavorite = async () => {
+   const res = await axios.post('/api/favorites')
  }
 
  render() {

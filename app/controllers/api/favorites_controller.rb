@@ -7,18 +7,28 @@ class Api::FavoritesController < ApplicationController
     end
 
     def create
-        boardgame_id = params[:boardgame_id]
-        user_id = params[:user_id]
-        @favorite = Favorite.create!(user_id: user_id, boardgame_id: boardgame_id)
+        @user = current_user
+        @user.favorite = Favorite.create() 
     end
 
     def show
-        @boardgame = Boardgame.find params[:id]
-        render json: @boardgame
+        @user = current_user
+        @favorite = @user.favorite
+        render json: @favorite
+    end
+
+    def update 
+        @user = current_user
+        @user.boardgames.create(favorite_params)
     end
 
     def destroy
         @favorite = Favorite.find params[:id]
         @favorite.destroy
+    end
+
+    private
+    def favorite_params
+        favorite = params.require(:favorite).permit(:boardgame_id).merge(boardgame_id: boardgame_id)
     end
 end

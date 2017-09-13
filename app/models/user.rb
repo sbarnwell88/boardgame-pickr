@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :favorites, dependent: :destroy
+  has_one :favorite, dependent: :destroy
   has_many :boardgames, through: :favorites
 end

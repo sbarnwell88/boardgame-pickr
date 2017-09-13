@@ -28,19 +28,13 @@ class HomePage extends Component {
         }
     }
 
-    _onClick = async (e) => {
-        const res = await axios.post(`/api/favorites`)
-        await this.setState({ favorites: res.data })
-        return res.data
-    }
-
     render() {
         return (
             <div>
                 <h1>Trending Boardgames</h1>
                    {this.state.games.map((game, index) => (
                     <div key={index}>
-                        <Link to={`/boardgames/${game.gameId}`}>{game.name}</Link><button onClick={this._onClick}>+</button>
+                        <Link to={`/boardgames/${game.gameId}`}>{game.name}</Link>
                     </div>
                 ))}   
             </div>

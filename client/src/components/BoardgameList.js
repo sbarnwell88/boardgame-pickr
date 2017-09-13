@@ -7,6 +7,7 @@ class BoardgameList extends Component {
         super();
         this.state = {
             game: {},
+            favorites: {},
             redirect: false
         }
     }
@@ -18,7 +19,7 @@ class BoardgameList extends Component {
 
     _getGame = async (gameId) => {
         try {
-            console.log('local sever')
+        console.log('local sever')
         const res = await axios.get(`/api/boardgames/${gameId}`)
         console.log(res)
         this.setState({game: res.data[0]})
@@ -47,6 +48,14 @@ class BoardgameList extends Component {
         }
     }
 
+    _addToFavorites = async (e) => {
+        const gameId = this.props.match.params.id; 
+        const game = this.state.game;
+        const res = await axios.put(`/api/favorites/${gameId}`, game)
+        await this.setState({ favorites: res.data })
+        return res.data
+    }
+
     _deleteGame = async () => {
         const gameId = this.props.match.params.id;
         const res = await axios.delete(`/api/boardgames/${gameId}`)
@@ -64,7 +73,8 @@ class BoardgameList extends Component {
                 <div>{this.state.game.description}</div>
                 <div><img src={this.state.game.thumbnail} /></div>
                 <img src={this.state.game.image} />
-                <Link to={`/boardgames/${gameId}/edit`}>Edit</Link>
+                <button onClick={this._addToFavorites}>Add To Favorites</button>
+                <button><Link to={`/boardgames/${gameId}/edit`}>Edit</Link></button>
                 <button onClick={this._deleteGame}>Delete Game</button>
             </div>
         );

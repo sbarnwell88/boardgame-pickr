@@ -8,15 +8,10 @@ class Api::BoardgamesController < ApplicationController
 
     def create
         @boardgame = Boardgame.where(api_id: params[:api_id]).first_or_create!(boardgame_params)
-        # create!(boardgame_params)
-        # (name: @boardgame.name).first_or_create!
-        # create!(boardgame_params)
         render json: @boardgame
     end
 
     def show
-        # @boardgame = Boardgame.find_by_id(params[:id])
-        # @boardgame = Boardgame.where(api_id: params[:id]) if @boardgame.nil?
         @boardgame = Boardgame.where(api_id: params[:id])
         puts @boardgame
         if @boardgame.exists?

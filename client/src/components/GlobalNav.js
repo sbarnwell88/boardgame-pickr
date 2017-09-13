@@ -41,6 +41,8 @@ class GlobalNav extends Component {
           <div>
             <span>Signed In As: <Link to={`/user/${this.state.user.id}`}>{this.state.user.email}</Link></span>
             <a href="#" onClick={this._logOut}> Log Out </a>
+            <Link to="/">BoardAF</Link>
+            <Link to="/favorites">My Favorites</Link>
           </div>
         </div>
       );
@@ -49,6 +51,7 @@ class GlobalNav extends Component {
             <div>
                 <Link to="/signUp">Sign Up</Link>
                 <Link to="/signin">Log In</Link>
+                <Link to="/">BoardAF</Link>
             </div>
         );
     }

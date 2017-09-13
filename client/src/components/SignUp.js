@@ -23,6 +23,7 @@ class SignUp extends Component {
     }
     const response = await axios.post('/auth', payload)
     saveAuthTokens(response.headers)
+    this._createFavorites();
     this.setState({redirect: true})
   }
 
@@ -35,6 +36,10 @@ class SignUp extends Component {
    const newState = {...this.state};
    newState[e.target.name] = e.target.value;
    this.setState(newState);
+ }
+
+ _createFavorites = async () => {
+   const res = await axios.post(`/api/favorites`)
  }
 
  render() {
