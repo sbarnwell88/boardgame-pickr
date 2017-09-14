@@ -8,13 +8,15 @@ class BoardgameList extends Component {
         this.state = {
             game: {},
             favorites: {},
-            redirect: false
+            redirect: false,
+            user_id: ''
         }
     }
 
     componentWillMount() {
         const gameId = this.props.match.params.id;
         this._getGame(gameId);
+        this._checkAuth();
     }
 
     _getGame = async (gameId) => {
@@ -48,10 +50,50 @@ class BoardgameList extends Component {
         }
     }
 
+    _checkAuth = async () => {
+    const accessToken = localStorage.getItem("access-token")
+    const client = localStorage.getItem("client")
+    const uid = localStorage.getItem("uid")
+    const validateTokenPayload = {
+      accessToken,
+      client,
+      uid
+    }
+    try {
+      const response = await axios.get(`/auth/validate_token`, {
+        params: {
+          accessToken,
+          client,
+          uid
+        }
+      })
+      await
+      console.log(response)
+      let user_id = response.data.data.id;
+      this.setState({user_id})
+      return response.data
+    }
+    catch (err) {
+      await console.log(err)
+      return err.message
+    }
+  
+  }
+
     _addToFavorites = async (e) => {
-        const gameId = this.props.match.params.id; 
         const game = this.state.game;
-        const res = await axios.put(`/api/favorites/${gameId}`, game)
+        // get game ID
+        const gameId = this.props.match.params.id;
+        console.log(gameId)
+        // get user ID
+        const user_id = this.state.user_id;
+        console.log(user_id)
+        // make a POST request with an object including both
+        const payload = {
+            boardgame_id: gameId,
+            user_id
+        }
+        const res = await axios.post(`/api/favorites/`, payload)
         await this.setState({ favorites: res.data })
         return res.data
     }
