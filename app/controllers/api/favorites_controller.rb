@@ -5,12 +5,9 @@ class Api::FavoritesController < ApplicationController
         @user = User.find_by params[:id]
         @favorites = @user.boardgames
         render json: @favorites
-        # @favorites = Favorite.all 
-        # render json: @favorites
     end
 
     def create
-
         # grab request body
         @favorite = Favorite.create!(favorite_params)
 
@@ -29,6 +26,7 @@ class Api::FavoritesController < ApplicationController
     end
 
     def destroy
+        
         @favorite = Favorite.find params[:id]
         @favorite.destroy
     end

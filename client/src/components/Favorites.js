@@ -29,7 +29,7 @@ class Favorites extends Component {
             <div>
                    {this.state.favorites.map((favorite, index) => {
                     return <div key={index} >
-                        <Link to={`/boardgames/${favorite.api_id}`}>{favorite.name}</Link>
+                        <Link to={`/boardgames/${favorite.api_id}`}>{favorite.name}</Link><a href="#">(-)</a>
                         </div>
 
                 })}   
