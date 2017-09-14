@@ -23,7 +23,7 @@ class BoardgameList extends Component {
         try {
         console.log('local sever')
         const res = await axios.get(`/api/boardgames/${gameId}`)
-        console.log(res)
+        console.log(res.data[0].id)
         this.setState({game: res.data[0]})
         return res.data            
         }
@@ -83,7 +83,7 @@ class BoardgameList extends Component {
     _addToFavorites = async (e) => {
         const game = this.state.game;
         // get game ID
-        const gameId = this.props.match.params.id;
+        const gameId = this.state.game.id;
         console.log(gameId)
         // get user ID
         const user_id = this.state.user_id;
