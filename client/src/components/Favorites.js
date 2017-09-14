@@ -23,6 +23,12 @@ class Favorites extends Component {
     render() {
         return (
             <div>
+                 {this.state.favorites.map((favorite, index) => {
+                    return <div key={index} >
+                        <p>boardgame_id: {favorite.boardgame_id}</p>
+                        </div>
+
+                })} 
             </div>
         );
     }
