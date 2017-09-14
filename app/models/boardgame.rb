@@ -1,3 +1,3 @@
-# class Boardgame < ApplicationRecord
-#     belongs_to :favorite
-# end
+class Boardgame < ApplicationRecord
+    belongs_to :favorite
+end
