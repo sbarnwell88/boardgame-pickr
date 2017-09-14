@@ -37,7 +37,7 @@ class HomePage extends Component {
                     <div key={index}>
                         <Link to={`/boardgames/${game.gameId}`}>{game.name}</Link>
                     </div>
-                ))}  
+                ))} 
             </div>
         );
     }

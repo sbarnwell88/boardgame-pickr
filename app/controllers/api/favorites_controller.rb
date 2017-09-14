@@ -7,7 +7,7 @@ class Api::FavoritesController < ApplicationController
     end
 
     def create
-        @favorite = Favorite.create!(favorite_params)
+        @favorite = Favorite.first_or_create!(favorite_params)
 
         render json: @favorite 
     end
