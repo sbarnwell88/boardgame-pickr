@@ -7,8 +7,7 @@ class Api::FavoritesController < ApplicationController
     end
 
     def create
-        @user = current_user
-        @user.favorite = Favorite.create() 
+        @favorite = Favorite.create!(params[:boardgame], params[:user]) 
     end
 
     def show
@@ -29,6 +28,13 @@ class Api::FavoritesController < ApplicationController
 
     private
     def favorite_params
-        favorite = params.require(:favorite).permit(:boardgame_id).merge(boardgame_id: boardgame_id)
+        params.require(:favorite).permit(:boardgame, :user)
     end
+    # def favorite_boardgame_params
+    #     params.require(:favorite).permit(:boardgame_id)
+    # end
+    # def favorite_user_params
+    #     params.require(:favorite).permit(:user_id)
+    # end
+
 end
