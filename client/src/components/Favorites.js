@@ -24,12 +24,12 @@ class Favorites extends Component {
 
 
     render() {
-   
+
         return (
             <div>
                    {this.state.favorites.map((favorite, index) => {
                     return <div key={index} >
-                        <Link to={`#`}>{favorite.name}</Link>
+                        <Link to={`/boardgames/${favorite.api_id}`}>{favorite.name}</Link>
                         </div>
 
                 })}   
