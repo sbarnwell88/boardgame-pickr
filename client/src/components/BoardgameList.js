@@ -8,13 +8,15 @@ class BoardgameList extends Component {
         this.state = {
             game: {},
             favorites: {},
-            redirect: false
+            redirect: false,
+            user_id: ''
         }
     }
 
     componentWillMount() {
         const gameId = this.props.match.params.id;
         this._getGame(gameId);
+        // this._checkAuth();
     }
 
     _getGame = async (gameId) => {
@@ -48,12 +50,58 @@ class BoardgameList extends Component {
         }
     }
 
-    _addToFavorites = async (e) => {
-        const gameId = this.props.match.params.id; 
-        const game = this.state.game;
-        const res = await axios.put(`/api/favorites/${gameId}`, game)
-        await this.setState({ favorites: res.data })
+    // _checkAuth = async () => {
+    // const accessToken = localStorage.getItem("access-token")
+    // const client = localStorage.getItem("client")
+    // const uid = localStorage.getItem("uid")
+    // const validateTokenPayload = {
+    //   accessToken,
+    //   client,
+    //   uid
+    // }
+    // try {
+    //   const response = await axios.get(`/auth/validate_token`, {
+    //     params: {
+    //       accessToken,
+    //       client,
+    //       uid
+    //     }
+    //   })
+    //   await
+    //   console.log(response)
+    //   let user_id = response.data.data.id;
+    //   this.setState({ user_id })
+    //   return response.data
+    // }
+    // catch (err) {
+    //   await console.log(err)
+    //   return err.message
+    // }
+    // }
+    // _addToFavorites = async (e) => {
+    //     const gameId = this.props.match.params.id; 
+    //     const game = this.state.game;
+    //     const res = await axios.put(`/api/favorites/${gameId}`, game)
+    //     await this.setState({ favorites: res.data })
+    //     return res.data
+    // }
+
+    _addToFavorites = async () => {
+        // const user_id = this.state.user_id;
+        const boardgame_id = this.props.match.params.id;
+        const payload = 
+        {
+            // user_id,
+            boardgame_id
+        }
+        try {
+        const res = await axios.post(`/api/favorites`, payload)
+        console.log(res)
         return res.data
+        }
+    catch (error) {
+        console.log( error )
+    }   
     }
 
     _deleteGame = async () => {

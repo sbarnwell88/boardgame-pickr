@@ -13,7 +13,6 @@ class HomePage extends Component {
 
     componentWillMount() {
         this._getGames();
-         
     }
 
     _getGames = async () => {
@@ -27,6 +26,8 @@ class HomePage extends Component {
             return error.message
         }
     }
+
+    
 
     render() {
         return (

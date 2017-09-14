@@ -2,13 +2,17 @@ class Api::FavoritesController < ApplicationController
     # before_action :authenticate_user!
 
     def index
-        @favorites = Favorite.all 
+        @user = current_user.id
+        @favorites = @user.favorites
+        # @favorites = Favorite.all 
         render json: @favorites
     end
 
     def create
-        @user = current_user
-        @user.favorite = Favorite.create() 
+        @user = current_user.id
+        @favorites = @user.favorite.create(favorite_params)
+        # @favorite = Favorite.create!(favorite_params) 
+        render json: @favorite
     end
 
     def show
@@ -29,6 +33,6 @@ class Api::FavoritesController < ApplicationController
 
     private
     def favorite_params
-        favorite = params.require(:favorite).permit(:boardgame_id).merge(boardgame_id: boardgame_id)
+        params.require(:favorite).permit(:boardgame_id, :user_id)
     end
 end

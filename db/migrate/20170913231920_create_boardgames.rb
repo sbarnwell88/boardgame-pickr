@@ -10,6 +10,7 @@ class CreateBoardgames < ActiveRecord::Migration[5.1]
       t.integer :playing_time
       t.integer :year_published
       t.integer :rating
+      t.references :favorites, foreign_key: true
 
       t.timestamps
     end
