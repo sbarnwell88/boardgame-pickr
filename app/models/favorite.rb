@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
-    belongs_to :user
-    has_many :boardgames
+  belongs_to :boardgame
+  belongs_to :user
 end
