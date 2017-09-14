@@ -1,24 +1,28 @@
 class Api::FavoritesController < ApplicationController
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
 
     def index
-        @favorites = current_user.boardgames 
+        @user = User.find_by params[:id]
+        @favorites = @user.boardgames
         render json: @favorites
     end
 
     def create
-        @favorite = Favorite.first_or_create!(favorite_params)
+        @favorite = Favorite.create!(favorite_params)
 
         render json: @favorite 
     end
 
     def destroy
-        @favorite = Favorite.find(where params[:id])
-        @favorite.destroy
+        # @favorite = Favorite.find(where params[:id])
+        # @favorite.destroy
         # @user = User.find(params[:favorite_id])
         # @favorites = @user.boardgames
         # @favorites.find params[:boardgame_id]
         # @favorite.destroy
+        @user = current_user
+        @favorite = @user.favorites 
+        @favorite.destroy
     end
 
     private

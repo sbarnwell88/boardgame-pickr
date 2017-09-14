@@ -27,7 +27,8 @@ class FavoriteComp extends Component {
 
         return (
             <div>
-                <Link to={`/boardgames/${this.props.api_id}`}>{name}</Link><button onClick={this._deleteFavorite}>(-)</button>
+                <Link to={`/boardgames/${this.props.api_id}`}>{name}</Link>
+                {/* <button onClick={this._deleteFavorite}>(-)</button> */}
             </div>
         );
     }

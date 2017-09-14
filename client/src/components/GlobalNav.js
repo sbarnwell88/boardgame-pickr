@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
+import { Nav } from '../styles/Home';
 
 class GlobalNav extends Component {
   constructor() {
@@ -35,16 +36,18 @@ class GlobalNav extends Component {
     render() {
     if (this.state.loggedIn) {
       return (
-        <div>
+        <Nav>
           <Link to="/">
           </Link>
-          <div>
-            <span>Signed In As: <Link to={`/user/${this.state.user.id}`}>{this.state.user.email}</Link></span>
-            <a href="#" onClick={this._logOut}> Log Out </a>
+          <div className="nav-links">
+            <div className="link">
             <Link to="/">BoardAF</Link>
+            <Link to={`/user/${this.state.user.id}`}>{this.state.user.email}</Link>
             <Link to="/favorites">My Favorites</Link>
+            <a href="#" onClick={this._logOut}> Log Out </a>
+            </div>
           </div>
-        </div>
+        </Nav>
       );
     }
         return (
