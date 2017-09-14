@@ -14,10 +14,10 @@ class FavoriteComp extends Component {
     }
 
     _deleteFavorite = async (e) => {
-        console.log(e)
         e.preventDefault();
         console.log(this.props.id)
-        const res = await axios.delete(`/api/favorites/${this.props.id}`)
+        const res = await axios.delete(`/api/favorites/${this.props.id}`) 
+        // #need user id and boardgame id
         this.setState({ favorite: res.data})
     }
 
