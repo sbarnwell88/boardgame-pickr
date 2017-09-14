@@ -8,7 +8,6 @@ class Api::FavoritesController < ApplicationController
     end
 
     def create
-        # grab request body
         @favorite = Favorite.create!(favorite_params)
 
         render json: @favorite 
@@ -26,8 +25,8 @@ class Api::FavoritesController < ApplicationController
     end
 
     def destroy
-        
-        @favorite = Favorite.find params[:id]
+        @user = User.find_by params[:id]
+        @favorites = @user.boardgames
         @favorite.destroy
     end
 

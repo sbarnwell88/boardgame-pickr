@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import FavoriteItem from './FavoriteItem';
 
 class Favorites extends Component {
     constructor() {
@@ -27,12 +28,9 @@ class Favorites extends Component {
 
         return (
             <div>
-                   {this.state.favorites.map((favorite, index) => {
-                    return <div key={index} >
-                        <Link to={`/boardgames/${favorite.api_id}`}>{favorite.name}</Link><a href="#">(-)</a>
-                        </div>
-
-                })}   
+                    {this.state.favorites.map((favorite, index) => {
+                    return <FavoriteItem {...favorite} key={index} />
+                })}    
             </div>
         );
     }

@@ -82,13 +82,8 @@ class BoardgameList extends Component {
 
     _addToFavorites = async (e) => {
         const game = this.state.game;
-        // get game ID
         const gameId = this.state.game.id;
-        console.log(gameId)
-        // get user ID
         const user_id = this.state.user_id;
-        console.log(user_id)
-        // make a POST request with an object including both
         const payload = {
             boardgame_id: gameId,
             user_id
