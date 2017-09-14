@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import BoardgameList from './BoardgameList';
+import { LandingPage } from '../styles/Home';
 
 class HomePage extends Component {
     constructor() {
@@ -31,14 +32,19 @@ class HomePage extends Component {
     render() {
          
         return (
+            <LandingPage>
             <div>
-                <h1>Trending Boardgames</h1>
+                <div className="hot-games">Trending Boardgames</div>
                    {this.state.games.map((game, index) => (
                     <div key={index}>
-                        <Link to={`/boardgames/${game.gameId}`}>{game.name}</Link>
+                        <Link to={`/boardgames/${game.gameId}`}>
+                        {game.name}
+                        <img src={game.thumbnail} />
+                        </Link>
                     </div>
                 ))} 
             </div>
+            </LandingPage>
         );
     }
 }

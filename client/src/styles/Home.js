@@ -19,3 +19,13 @@ export const Nav = styled.div`
         }
     }
 `
+
+export const LandingPage = styled.div`
+    .hot-games {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+`
