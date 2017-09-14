@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Favorites extends Component {
     constructor() {
         super();
         this.state = {
-            favorites: []
+            favorites: [],
         }
     }
 
@@ -17,18 +18,21 @@ class Favorites extends Component {
         const res = await axios.get(`/api/favorites`)
         console.log(res.data)
         this.setState({ favorites: res.data})
+        console.log(this.state.favorites)
         return res.data
     }
 
+
     render() {
+   
         return (
             <div>
-                 {this.state.favorites.map((favorite, index) => {
+                   {this.state.favorites.map((favorite, index) => {
                     return <div key={index} >
-                        <p>boardgame_id: {favorite.boardgame_id}</p>
+                        <Link to={`#`}>{favorite.name}</Link>
                         </div>
 
-                })} 
+                })}   
             </div>
         );
     }

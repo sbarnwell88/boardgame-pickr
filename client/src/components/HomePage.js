@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
+import BoardgameList from './BoardgameList';
 
 class HomePage extends Component {
     constructor() {
@@ -12,8 +13,7 @@ class HomePage extends Component {
     }
 
     componentWillMount() {
-        this._getGames();
-         
+        this._getGames();  
     }
 
     _getGames = async () => {
@@ -29,6 +29,7 @@ class HomePage extends Component {
     }
 
     render() {
+         
         return (
             <div>
                 <h1>Trending Boardgames</h1>
@@ -36,7 +37,7 @@ class HomePage extends Component {
                     <div key={index}>
                         <Link to={`/boardgames/${game.gameId}`}>{game.name}</Link>
                     </div>
-                ))}   
+                ))}  
             </div>
         );
     }

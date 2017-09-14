@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { setAxiosDefaults } from './util';
+import axios from 'axios';
 import HomePage from './components/HomePage';
 import SignUp from './components/SignUp';
 import GlobalNav from './components/GlobalNav';
@@ -14,10 +15,12 @@ import Favorites from './components/Favorites';
 class App extends Component {
 
   componentWillMount() {
-    setAxiosDefaults()
+    setAxiosDefaults();
   }
 
+
   render() {
+
     return (
       <Router>
         <div>

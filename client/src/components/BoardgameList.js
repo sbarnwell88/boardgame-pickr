@@ -93,6 +93,7 @@ class BoardgameList extends Component {
             boardgame_id: gameId,
             user_id
         }
+        console.log(payload)
         const res = await axios.post(`/api/favorites/`, payload)
         await this.setState({ favorites: res.data })
         return res.data
