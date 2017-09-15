@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { FormComponent } from '../styles/Forms';
+
 
 class EditProfile extends Component {
     constructor() {
@@ -63,6 +65,7 @@ _isLoggedIn = async () => {
         }
         return (
             <div>
+                <FormComponent>
                 <h1>Edit Profile</h1>
                 <form>
                     <div>
@@ -84,7 +87,7 @@ _isLoggedIn = async () => {
 
                     <button onClick={this._editProfile}>Submit</button>
                 </form>
-                
+                </FormComponent>
             </div>
         );
     }

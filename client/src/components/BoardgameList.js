@@ -120,7 +120,7 @@ class BoardgameList extends Component {
                 <Buttons>
                 <div className="buttons">
                     <Button onClick={this._addToFavorites}>Add To Favorites</Button>
-                    <Button><Link to={`/boardgames/${gameId}/edit`}>Edit</Link></Button>
+                    <Button><Link to={`/boardgames/${gameId}/edit`}>Update Boardgame</Link></Button>
                     <Button onClick={this._deleteGame}>Delete Game</Button>
                 </div>
                 </Buttons>

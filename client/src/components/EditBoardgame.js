@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { FormComponent } from '../styles/Forms';
 
 class EditBoardgame extends Component {
     constructor() {
@@ -55,6 +56,7 @@ class EditBoardgame extends Component {
         }
         return (
             <div>
+                <FormComponent>
                 <h1>Edit Boardgame</h1>
                 <form>
                     <div>
@@ -76,7 +78,7 @@ class EditBoardgame extends Component {
 
                     <button onClick={this._editGame}>Submit</button>
                 </form>
-                
+                </FormComponent>
             </div>
         );
     }
