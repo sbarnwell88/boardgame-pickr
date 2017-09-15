@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 export const Nav = styled.div`
     background-color: #941a18;
-    padding: 25px;
+    padding: 20px;
+    font-family: 'Acme', sans-serif;
+    #logo {
+        font-family: 'Frijole', cursive;
+        font-size: 30px;
+    }
     .nav-links: {
         display: flex;
     }
@@ -14,13 +19,17 @@ export const Nav = styled.div`
         }
         a {
             color: white;
-            font-weight: bold;
             font-size: 20px;
         }
     }
 `
 
 export const LandingPage = styled.div`
+    background-image: url('https://il6.picdn.net/shutterstock/videos/13437293/thumb/1.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Acme', sans-serif;
     .hot-games {
         display: flex;
         justify-content: center;
@@ -33,6 +42,11 @@ export const LandingPage = styled.div`
         justify-content: center;
         font-size: 15px;
         font-weight: bold;
-        color: black;
+        color: white;
+        font-family: 'Acme', sans-serif;
+    }
+    .random {
+        display: flex;
+        justify-content: center;
     }
 `

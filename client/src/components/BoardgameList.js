@@ -107,13 +107,16 @@ class BoardgameList extends Component {
         }
         return (
             <div>
-                <div>{this.state.game.name}</div>
-                <div>{this.state.game.description}</div>
-                <div><img src={this.state.game.thumbnail} /></div>
-                <img src={this.state.game.image} />
-                <button onClick={this._addToFavorites}>Add To Favorites</button>
-                <button><Link to={`/boardgames/${gameId}/edit`}>Edit</Link></button>
-                <button onClick={this._deleteGame}>Delete Game</button>
+                <div>
+                    <div>{this.state.game.name}</div>
+                    <div>{this.state.game.description}</div>
+                    <img src={this.state.game.image} height="300" width="300" />
+                    </div>
+                <div>
+                    <button onClick={this._addToFavorites}>Add To Favorites</button>
+                    <button><Link to={`/boardgames/${gameId}/edit`}>Edit</Link></button>
+                    <button onClick={this._deleteGame}>Delete Game</button>
+                </div>
             </div>
         );
     }

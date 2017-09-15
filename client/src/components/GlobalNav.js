@@ -41,7 +41,7 @@ class GlobalNav extends Component {
           </Link>
           <div className="nav-links">
             <div className="link">
-            <Link to="/">BoardAF</Link>
+            <Link id="logo" to="/">BoardAF</Link>
             <Link to={`/user/${this.state.user.id}`}>{this.state.user.email}</Link>
             <Link to="/favorites">My Favorites</Link>
             <a href="#" onClick={this._logOut}> Log Out </a>

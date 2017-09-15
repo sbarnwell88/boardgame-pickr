@@ -67,7 +67,9 @@ class HomePage extends Component {
                     ))} 
                     </Coverflow>
                 </StyleRoot>
-                <button onClick={this._handleClick.bind(this)}>Random</button>
+                <div className="random">
+                    <button onClick={this._handleClick.bind(this)}>Random</button>
+                </div>
             </div>
             </LandingPage>
         );
