@@ -4,6 +4,7 @@ import axios from 'axios';
 import { saveAuthTokens } from '../util';
 import { FormComponent } from '../styles/Forms';
 
+
 class SignUp extends Component {
  constructor(){
    super();
@@ -65,7 +66,7 @@ class SignUp extends Component {
          </div>
          
          <button>Sign Up</button>
-         <button onClick={this._signIn}>Log In</button>
+         {/* <button onClick={this._signIn}>Log In</button> */}
        </form>
        </FormComponent>
      </div>

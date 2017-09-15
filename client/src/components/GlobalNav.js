@@ -52,9 +52,15 @@ class GlobalNav extends Component {
     }
         return (
             <div>
-                <Link to="/signUp">Sign Up</Link>
-                <Link to="/signin">Log In</Link>
-                <Link to="/">BoardAF</Link>
+              <Nav>
+                <div className="nav-links">
+                  <div className="link">
+                    <Link id="logo" to="/">BoardAF</Link>
+                    <Link to="/signUp">Sign Up</Link>
+                    <Link to="/signin">Log In</Link>
+                  </div>
+                </div>
+              </Nav>
             </div>
         );
     }
