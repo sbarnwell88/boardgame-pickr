@@ -15,8 +15,11 @@ class Api::FavoritesController < ApplicationController
     end
 
     def destroy
-        @favorite = Favorite.find params[:id] 
+        puts request.body.read
+        json_request = JSON.parse(request.body.read)
+        @favorite = Favorite.find_by(boardgame_id: json_request["boardgame_id"], user_id: json_request["user_id"])
         @favorite.destroy
+        render status: :ok
     end
 
     private

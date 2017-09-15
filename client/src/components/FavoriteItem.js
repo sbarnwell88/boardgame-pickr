@@ -7,19 +7,80 @@ class FavoriteComp extends Component {
     constructor() {
         super();
         this.state = {
-            favorite: {}
+            favorite: {},
+            game: {},
+            user_id: ''
         }
     }
 
     componentWillMount() {
+        this._checkAuth();
+        this._getGame();
+    }
+
+    _checkAuth = async () => {
+    const accessToken = localStorage.getItem("access-token")
+    const client = localStorage.getItem("client")
+    const uid = localStorage.getItem("uid")
+    const validateTokenPayload = {
+      accessToken,
+      client,
+      uid
+    }
+    try {
+      const response = await axios.get(`/auth/validate_token`, {
+        params: {
+          accessToken,
+          client,
+          uid
+        }
+      })
+      await
+      console.log(response)
+      let user_id = response.data.data.id;
+      this.setState({user_id})
+      console.log(this.state.user_id)
+      await this._deleteFavorite();
+    }
+    catch (err) {
+      await console.log(err)
+      return err.message
+    }
+  }
+
+    _getGame = async () => {
+        try {
+        const res = await axios.get(`/api/boardgames/`)
+        this.setState({game: res.data})
+        console.log(this.state.game)
+        return res.data            
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+    _getGameId = () => {
+        this.state.game.map((game, index) => {
+            return game.id;
+            console.log(game.id)
+        })
     }
 
     _deleteFavorite = async (e) => {
         e.preventDefault();
-        console.log(this.props.id)
-        const res = await axios.delete(`/api/favorites/${this.props.id}`) 
-        // #need user id and boardgame id
-        this.setState({ favorite: res.data})
+        const favoriteId = this.props.id;
+        console.log(favoriteId);
+        const user_id = this.state.user_id;
+        console.log(user_id);
+        const boardgame_id = this.props.id
+        console.log(boardgame_id)
+        const payload = {
+            boardgame_id,
+            user_id
+        }
+        console.log(payload)
+        const res = await axios.delete(`/api/favorites/${favoriteId}`, {data:payload}) 
+        window.location.reload();
     }
 
     render() {
@@ -32,7 +93,7 @@ class FavoriteComp extends Component {
                             <div className="item"><Link to={`/boardgames/${this.props.api_id}`}>
                             {/* {name} */}
                             <img src={this.props.thumbnail} width="250" height="250"/></Link></div>
-                            {/* <button onClick={this._deleteFavorite}>(-)</button> */}
+                             <button onClick={this._deleteFavorite}>(x)</button> 
                         </div>
                 </FaveList>
                 
