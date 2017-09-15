@@ -20,7 +20,7 @@ class Api::FavoritesController < ApplicationController
         # @favorites = @user.boardgames
         # @favorites.find params[:boardgame_id]
         # @favorite.destroy
-        @user = current_user
+        @user = User.find_by params[:id]
         @favorite = @user.favorites 
         @favorite.destroy
     end
