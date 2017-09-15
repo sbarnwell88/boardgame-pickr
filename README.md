@@ -8,6 +8,7 @@ BoardAF was created for users who like to have game night with their friends, bu
 #### Trello Board: https://trello.com/b/CZ7JoFhJ/board-game-pickr
 
 #### Wireframes: 
+![alt text](https://i.imgur.com/aMfH2m6.jpg)
 
 #### ERDs: 
 ![alt text](https://i.imgur.com/5BmwwN2.jpg?2) 
