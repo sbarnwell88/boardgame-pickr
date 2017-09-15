@@ -14,14 +14,7 @@ class Api::FavoritesController < ApplicationController
     end
 
     def destroy
-        # @favorite = Favorite.find(where params[:id])
-        # @favorite.destroy
-        # @user = User.find(params[:favorite_id])
-        # @favorites = @user.boardgames
-        # @favorites.find params[:boardgame_id]
-        # @favorite.destroy
-        @user = User.find_by params[:id]
-        @favorite = @user.favorites 
+        @favorite = Favorite.find params[:id] 
         @favorite.destroy
     end
 

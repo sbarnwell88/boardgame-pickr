@@ -3,13 +3,16 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import BoardgameList from './BoardgameList';
 import { LandingPage } from '../styles/Home';
+import Coverflow from 'react-coverflow';
+import {StyleRoot} from 'radium';
 
 class HomePage extends Component {
     constructor() {
         super();
         this.state = {
             games: [],
-            favorites: []
+            favorites: [],
+            active: 0
         }
     }
 
@@ -29,20 +32,33 @@ class HomePage extends Component {
         }
     }
 
+    _handleClick() {
+        let num = Math.floor((Math.random() * 10) + 1);
+        this.setState({ active: num });
+    }
+
     render() {
-         
         return (
             <LandingPage>
             <div>
                 <div className="hot-games">Trending Boardgames</div>
-                   {this.state.games.map((game, index) => (
+                    <Coverflow
+                        width={960}
+                        height={480}
+                        displayQuantityOfSide={2}
+                        navigation={true}
+                        enableHeading={false}
+                        active={this.state.active} >
+                    {this.state.games.map((game, index) => (
                     <div key={index}>
                         <Link to={`/boardgames/${game.gameId}`}>
-                        {game.name}
-                        <img src={game.thumbnail} />
+                        <img src={game.thumbnail} width="250" height="250"/>
+                        <div>{game.name}</div>
                         </Link>
                     </div>
-                ))} 
+                    ))} 
+                    </Coverflow>
+                <button onClick={this._handleClick.bind(this)}>Random</button>
             </div>
             </LandingPage>
         );
