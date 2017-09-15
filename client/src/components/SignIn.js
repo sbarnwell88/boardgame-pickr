@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import { saveAuthTokens } from '../util';
+import { FormComponent } from '../styles/Forms';
 
 class SignIn extends Component {
  constructor(){
@@ -41,6 +42,7 @@ _signIn = async (e) => {
    }
    return (
      <div>
+       <FormComponent>
        <form onSubmit={this._signIn}>
          <div>
            <label htmlFor="email">E-mail: </label>
@@ -51,8 +53,9 @@ _signIn = async (e) => {
            <input onChange={this._handleChange} type="text" name="password" value={this.state.password} />
          </div>
          <button>Sign In</button>
-         <Link to="/signup">Sign Up</Link>
+         {/* <button><Link to="/signup">Sign Up</Link></button> */}
        </form>
+       </FormComponent>
      </div>
    );
  }

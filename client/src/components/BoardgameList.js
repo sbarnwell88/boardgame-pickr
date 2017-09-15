@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect, Link } from "react-router-dom";
+import { IndGame, Button, Buttons } from '../styles/ShowGame';
 
 class BoardgameList extends Component {
     constructor() {
@@ -107,16 +108,22 @@ class BoardgameList extends Component {
         }
         return (
             <div>
+                <IndGame>
                 <div>
-                    <div>{this.state.game.name}</div>
-                    <div>{this.state.game.description}</div>
-                    <img src={this.state.game.image} height="300" width="300" />
+                    <div className="container">
+                        <div className="show"><h1>{this.state.game.name}</h1>
+                        {this.state.game.description}</div>
+                        <div className="show"><img src={this.state.game.image} height="400" width="400" /></div>
                     </div>
-                <div>
-                    <button onClick={this._addToFavorites}>Add To Favorites</button>
-                    <button><Link to={`/boardgames/${gameId}/edit`}>Edit</Link></button>
-                    <button onClick={this._deleteGame}>Delete Game</button>
                 </div>
+                </IndGame>
+                <Buttons>
+                <div className="buttons">
+                    <Button onClick={this._addToFavorites}>Add To Favorites</Button>
+                    <Button><Link to={`/boardgames/${gameId}/edit`}>Edit</Link></Button>
+                    <Button onClick={this._deleteGame}>Delete Game</Button>
+                </div>
+                </Buttons>
             </div>
         );
     }

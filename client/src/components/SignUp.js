@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { saveAuthTokens } from '../util';
+import { FormComponent } from '../styles/Forms';
 
 class SignUp extends Component {
  constructor(){
@@ -48,6 +49,7 @@ class SignUp extends Component {
    }
    return (
      <div>
+       <FormComponent>
        <form onSubmit={this._signUp}>
          <div>
            <label htmlFor="email">E-mail: </label>
@@ -65,6 +67,7 @@ class SignUp extends Component {
          <button>Sign Up</button>
          <button onClick={this._signIn}>Log In</button>
        </form>
+       </FormComponent>
      </div>
    );
  }

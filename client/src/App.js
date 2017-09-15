@@ -11,6 +11,8 @@ import UserProfile from './components/UserProfile';
 import NewBoardgame from './components/NewBoardgame';
 import EditBoardgame from './components/EditBoardgame';
 import Favorites from './components/Favorites';
+// import EditProfile from './components/EditProfile';
+
 
 class App extends Component {
 
@@ -30,6 +32,7 @@ class App extends Component {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/boardgames/:id" component={BoardgameList} />
           <Route exact path="/user/:id" component={UserProfile} /> 
+          {/* <Route exact path="/user/:id/edit" component={EditProfile} /> */}
           <Route exact path="/new" component={NewBoardgame} />
           <Route exact path="/boardgames/:id/edit" component={EditBoardgame} />
           <Route exact path="/favorites" component={Favorites}/>

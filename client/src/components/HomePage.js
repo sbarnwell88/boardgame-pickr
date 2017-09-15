@@ -12,6 +12,7 @@ class HomePage extends Component {
         this.state = {
             games: [],
             favorites: [],
+            active: 0
         }
     }
 
@@ -56,7 +57,7 @@ class HomePage extends Component {
                         displayQuantityOfSide={2}
                         navigation={true}
                         enableHeading={false}
-                        active={0} >
+                        active={this.state.active} >
                     {this.state.games.map((game, index) => (
                     <div key={index}>
                         <Link to={`/boardgames/${game.gameId}`}>

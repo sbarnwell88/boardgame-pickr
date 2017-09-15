@@ -28,6 +28,7 @@ class Favorites extends Component {
 
         return (
             <div>
+                <h1>My Favorites</h1>
                     {this.state.favorites.map((favorite, index) => {
                     return <FavoriteItem {...favorite} key={index} />
                 })}    
