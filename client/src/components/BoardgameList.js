@@ -78,7 +78,6 @@ class BoardgameList extends Component {
       await console.log(err)
       return err.message
     }
-  
   }
 
     _addToFavorites = async (e) => {

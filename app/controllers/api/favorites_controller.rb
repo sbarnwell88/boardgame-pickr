@@ -2,9 +2,16 @@ class Api::FavoritesController < ApplicationController
     # before_action :authenticate_user!
 
     def index
-        @user = User.find_by params[:id]
+        # @user = User.find(1)
+        @user = User.find params[:user_id]
         @favorites = @user.boardgames
         render json: @favorites
+        # puts JSON.parse(request.body.read)
+        # json_request = JSON.parse(request.body.read)
+        # @user = User.find_by params[:user_id]
+        # # @boardgames = Boardgame.where(:boardgame_id params[:boardgame_id])
+        # @favorites = @user.favorites 
+        # render json: @favorites
     end
 
     def create
