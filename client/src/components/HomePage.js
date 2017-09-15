@@ -12,7 +12,6 @@ class HomePage extends Component {
         this.state = {
             games: [],
             favorites: [],
-            active: 0
         }
     }
 
@@ -42,22 +41,32 @@ class HomePage extends Component {
             <LandingPage>
             <div>
                 <div className="hot-games">Trending Boardgames</div>
+                <StyleRoot>
                     <Coverflow
-                        width={960}
-                        height={480}
+                        media={{
+                            '@media (max-width: 900px)': {
+                                width: '90%',
+                                height: '300px'
+                            },
+                            '@media (min-width: 900px)': {
+                                width: '90%',
+                                height: '600px'
+                            }
+                            }}
                         displayQuantityOfSide={2}
                         navigation={true}
                         enableHeading={false}
-                        active={this.state.active} >
+                        active={0} >
                     {this.state.games.map((game, index) => (
                     <div key={index}>
                         <Link to={`/boardgames/${game.gameId}`}>
-                        <img src={game.thumbnail} width="250" height="250"/>
-                        <div>{game.name}</div>
+                            <img src={game.thumbnail} width="250" height="250"/>
+                            <div className="game-list">{game.name}</div>
                         </Link>
                     </div>
                     ))} 
                     </Coverflow>
+                </StyleRoot>
                 <button onClick={this._handleClick.bind(this)}>Random</button>
             </div>
             </LandingPage>

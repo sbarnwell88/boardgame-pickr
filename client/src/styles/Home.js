@@ -28,4 +28,11 @@ export const LandingPage = styled.div`
         font-size: 40px;
         font-weight: bold;
     }
+    .game-list {
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: black;
+    }
 `
