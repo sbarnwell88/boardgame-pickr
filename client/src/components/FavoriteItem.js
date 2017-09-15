@@ -27,15 +27,15 @@ class FavoriteComp extends Component {
         const name = this.props.name;
 
         return (
-            <div>
                 <FaveList>
                         <div className="fave-list">
-                            <Link to={`/boardgames/${this.props.api_id}`}>{name}</Link>
-                            <img src={this.props.thumbnail} />
+                            <div className="item"><Link to={`/boardgames/${this.props.api_id}`}>
+                            {/* {name} */}
+                            <img src={this.props.thumbnail} width="250" height="250"/></Link></div>
+                            {/* <button onClick={this._deleteFavorite}>(-)</button> */}
                         </div>
                 </FaveList>
-                {/* <button onClick={this._deleteFavorite}>(-)</button> */}
-            </div>
+                
         );
     }
 }

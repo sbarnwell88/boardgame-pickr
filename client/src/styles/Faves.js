@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 
-export const FaveList = styled.div`
-    .fave-list {
+export const FaveList = styled.div`=
+    .header {
         font-family: 'Acme', sans-serif;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: row;
-        flex-wrap: wrap;
+        font-size: 30px;
     }
+    text-align: center;
+    .item {
+        padding: 20px;
+    }
+`
+
+export const FavePage = styled.div`
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 `

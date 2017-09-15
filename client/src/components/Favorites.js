@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import FavoriteItem from './FavoriteItem';
+import { FavePage, FaveList } from '../styles/Faves';
 
 class Favorites extends Component {
     constructor() {
@@ -13,7 +14,6 @@ class Favorites extends Component {
     }
 
     componentWillMount() {
-        
         this._checkAuth();
     }
 
@@ -67,10 +67,12 @@ class Favorites extends Component {
 
         return (
             <div>
-                <h1>My Favorites</h1>
+                <FaveList><h1>My Favorites</h1></FaveList>
+                <FavePage>
                     {this.state.favorites.map((favorite, index) => {
                     return <FavoriteItem {...favorite} key={index} />
                 })}    
+            </FavePage>
             </div>
         );
     }
