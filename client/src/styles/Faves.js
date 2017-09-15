@@ -8,6 +8,7 @@ export const FaveList = styled.div`=
     text-align: center;
     .item {
         padding: 20px;
+        box-shadow: 5px 5px 10px #888888;
     }
 `
 
