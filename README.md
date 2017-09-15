@@ -1,24 +1,32 @@
-# README
+# BoardAF
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+BoardAF was created for users who like to have game night with their friends, but struggle to find new and fun boardgames.
 
-Things you may want to cover:
+#### Live Site: https://board-af.herokuapp.com/
 
-* Ruby version
+#### Trello Board: https://trello.com/b/CZ7JoFhJ/board-game-pickr
 
-* System dependencies
+#### Wireframes: 
 
-* Configuration
+#### ERDs: 
+![alt text](https://i.imgur.com/5BmwwN2.jpg?2) 
 
-* Database creation
+## Technologies Used:
+* Ruby on Rails
+* React
+* HTML
+* CSS
+* Styled Components
+* Google Fonts
+* Postgresql
+* Heroku
+* React-Coverflow
 
-* Database initialization
+## Features
 
-* How to run the test suite
+Users are able to create an account, look through the trending boardgames, and save their favorite games.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Future Developments
 
-* Deployment instructions
-
-* ...
+I would like bring in an additional external API where users are able to search for, and purchase, their any boardgames they like.
