@@ -70,5 +70,12 @@ export const LandingPage = styled.div`
             width: 100px;
             height: 100px;
         }
+        .game-list {
+            font-size: 10px;
+        }
+        .hot-games {
+            text-align: center;
+            font-size: 25px;
+        }
     }
 `
