@@ -79,6 +79,6 @@ export const LandingPage = styled.div`
             text-align: center;
             font-size: 25px;
         }
-        padding-bottom:15em;
+        padding-bottom:10em;
     }
 `
