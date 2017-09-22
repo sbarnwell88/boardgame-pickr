@@ -19,7 +19,7 @@ export const Nav = styled.div`
         }
         a {
             color: white;
-            font-size: 20px;
+            font-size: 25px;
         }
     }
 
