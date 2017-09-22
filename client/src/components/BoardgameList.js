@@ -112,7 +112,7 @@ class BoardgameList extends Component {
                     <div className="container">
                         <div className="show"><h1>{this.state.game.name}</h1>
                         {this.state.game.description}</div>
-                        <div className="show"><img src={this.state.game.image} height="400" width="400" /></div>
+                        <div className="show"><img src={this.state.game.image} /></div>
                     </div>
                 </div>
                 </IndGame>

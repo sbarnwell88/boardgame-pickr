@@ -61,7 +61,7 @@ class HomePage extends Component {
                     {this.state.games.map((game, index) => (
                     <div key={index}>
                         <Link to={`/boardgames/${game.gameId}`}>
-                            <img src={game.thumbnail} width="250" height="250"/>
+                            <img src={game.thumbnail} />
                             <div className="game-list">{game.name}</div>
                         </Link>
                     </div>

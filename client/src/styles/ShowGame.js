@@ -8,14 +8,35 @@ export const IndGame = styled.div`
     text-align: justify;
     .show {
         padding: 100px;
+        img {
+            height: 400px; 
+            width: 400px;
+        }
     }
     h1 {
-            font-size: 30px;
-            padding: 10px;
+        font-size: 30px;
+        padding: 10px;
         }
     .container {
         display: flex;
         justify-content: space-around;
+    }
+    @media screen and (max-width: 766px)  {
+        font-size: 15px;
+        h1 {
+            font-size: 23px;
+        }
+        .container {
+            flex-wrap: wrap;
+        }
+        .show {
+            padding: 0;
+            img {
+                height: 300px;
+                width: 300px;
+                padding-top: 10px;
+            }
+        }
     }
 `
 
