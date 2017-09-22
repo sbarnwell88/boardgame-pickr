@@ -38,10 +38,12 @@ export const Nav = styled.div`
 
 export const LandingPage = styled.div`
     background-image: url('https://il6.picdn.net/shutterstock/videos/13437293/thumb/1.jpg');
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     color: white;
     font-family: 'Acme', sans-serif;
+    position:relative;
+    padding-bottom:2em;
     img {
         width: 250px;
         height: 250px;
@@ -77,5 +79,6 @@ export const LandingPage = styled.div`
             text-align: center;
             font-size: 25px;
         }
+        padding-bottom:15em;
     }
 `
