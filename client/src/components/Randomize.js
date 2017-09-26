@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { IndGame, Button, Buttons } from '../styles/ShowGame';
 
-
 class Randomize extends Component {
     constructor() {
         super();

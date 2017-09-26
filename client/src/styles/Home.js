@@ -67,6 +67,12 @@ export const LandingPage = styled.div`
         display: flex;
         justify-content: center;
     }
+    button {
+        background: #616161;
+        color: white;
+        border: none;
+        padding: 6px 32px;
+    }
     @media screen and (max-width: 766px)  {
         img {
             width: 100px;

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { FaveList } from '../styles/Faves';
+import { IndGame, Button, Buttons } from '../styles/ShowGame';
+
 
 class FavoriteComp extends Component {
     constructor() {
@@ -93,7 +95,7 @@ class FavoriteComp extends Component {
                             <div className="item"><Link to={`/boardgames/${this.props.api_id}`}>
                             {/* {name} */}
                             <img src={this.props.thumbnail} width="250" height="250"/></Link></div>
-                             <button onClick={this._deleteFavorite}>(x)</button> 
+                             <Button onClick={this._deleteFavorite}>(x)</Button> 
                         </div>
                 </FaveList>
                 
