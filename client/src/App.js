@@ -11,6 +11,7 @@ import UserProfile from './components/UserProfile';
 import NewBoardgame from './components/NewBoardgame';
 import EditBoardgame from './components/EditBoardgame';
 import Favorites from './components/Favorites';
+import Randomize from './components/Randomize';
 // import EditProfile from './components/EditProfile';
 
 
@@ -36,6 +37,7 @@ class App extends Component {
           <Route exact path="/new" component={NewBoardgame} />
           <Route exact path="/boardgames/:id/edit" component={EditBoardgame} />
           <Route exact path="/favorites" component={Favorites}/>
+          <Route exact path="/random" component={Randomize} />
         </div>
       </Router>
     );
