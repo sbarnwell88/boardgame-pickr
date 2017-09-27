@@ -58,9 +58,9 @@ class Randomize extends Component {
                 <IndGame>
                 <div>
                     <div className="container">
-                        <div className="show"><h1>{this.state.game.name}</h1>
-                        {this.state.game.description}</div>
+                        <div className="show"><h1>{this.state.game.name}</h1></div>
                         <div className="show"><img src={this.state.game.image} /></div>
+                        <div className="show">{this.state.game.description}</div>
                     </div>
                 </div>
                 </IndGame>

@@ -73,6 +73,17 @@ export const LandingPage = styled.div`
         border: none;
         padding: 6px 32px;
     }
+    @media screen and (min-width: 767px) and (max-width: 1200px) and (orientation : portrait) {
+        .hot-games {
+            padding: 100px;
+        }
+        img {
+            width: 180px;
+            height: 180px;
+        }
+        padding-bottom: 30em;
+    }
+
     @media screen and (max-width: 766px)  {
         img {
             width: 100px;

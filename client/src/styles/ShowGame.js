@@ -14,7 +14,6 @@ export const IndGame = styled.div`
             width: 400px;
             float: right;
             margin: 0 0 20px 20px;
-    
         }
     }
     h1 {
@@ -43,6 +42,30 @@ export const IndGame = styled.div`
                 margin: 10px 0;
             }
         }
+    }
+    @media screen and (max-width: 766px) and (orientation : landscape) {
+    width:90%;
+    margin:auto;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    .show {
+        // padding: 100px;
+        clear: left;
+        img {
+            height: 400px; 
+            width: 400px;
+            float: right;
+            margin: 0 0 20px 20px;
+        }
+    }
+    h1 {
+        font-size: 30px;
+        }
+    .container {
+        // display: flex;
+        // justify-content: space-around;
+    }
     }
 `
 
