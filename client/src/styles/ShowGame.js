@@ -7,19 +7,22 @@ export const IndGame = styled.div`
     font-size: 20px;
     text-align: justify;
     .show {
-        padding: 100px;
+        // padding: 100px;
+        clear: left;
         img {
             height: 400px; 
             width: 400px;
+            float: right;
+            margin: 0 0 20px 20px;
+    
         }
     }
     h1 {
         font-size: 30px;
-        padding: 10px;
         }
     .container {
-        display: flex;
-        justify-content: space-around;
+        // display: flex;
+        // justify-content: space-around;
     }
     @media screen and (max-width: 766px)  {
         font-size: 15px;
@@ -28,6 +31,8 @@ export const IndGame = styled.div`
         }
         .container {
             flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
         }
         .show {
             padding: 0;
@@ -35,6 +40,7 @@ export const IndGame = styled.div`
                 height: 300px;
                 width: 300px;
                 padding-top: 10px;
+                margin: 10px 0;
             }
         }
     }
