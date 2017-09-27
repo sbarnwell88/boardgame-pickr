@@ -7,14 +7,13 @@ export const IndGame = styled.div`
     font-size: 20px;
     text-align: justify;
     .show {
-        // padding: 100px;
         clear: left;
         img {
             height: 400px; 
             width: 400px;
             float: right;
             margin: 0 0 20px 20px;
-        }
+            }
     }
     h1 {
         font-size: 30px;
@@ -43,7 +42,33 @@ export const IndGame = styled.div`
             }
         }
     }
+
     @media screen and (max-width: 766px) and (orientation : landscape) {
+    width:90%;
+    margin:auto;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    .show {
+        // padding: 100px;
+        clear: left;
+        img {
+            height: 200px; 
+            width: 200px;
+            float: right;
+            margin: 0 0 20px 20px;
+        }
+    }
+    h1 {
+        font-size: 30px;
+        }
+    .container {
+        // display: flex;
+        // justify-content: space-around;
+    }
+    }
+
+    @media screen and (min-width: 767px) and (max-width: 1200px) and (orientation : landscape) {
     width:90%;
     margin:auto;
     font-family: 'Acme', sans-serif;
