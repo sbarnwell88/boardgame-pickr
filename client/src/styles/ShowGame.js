@@ -53,8 +53,8 @@ export const IndGame = styled.div`
         // padding: 100px;
         clear: left;
         img {
-            height: 200px; 
-            width: 200px;
+            height: 300px; 
+            width: 300px;
             float: right;
             margin: 0 0 20px 20px;
         }
